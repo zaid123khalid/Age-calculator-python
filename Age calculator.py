@@ -1,5 +1,6 @@
 from tkinter import *
 import datetime
+from tkinter import ttk
 
 age_calc = Tk()
 age_calc.title("Age Calculator")
@@ -39,19 +40,19 @@ mon_lbl.grid(row=3, column=1)
 day_lbl = Label(age_calc, text="Birth Day", font=15)
 day_lbl.grid(row=4, column=1)
 
-yrs = Entry(age_calc, font=50, width=25, bg="black", fg="white")
-yrs.bind("<Button-1>", lambda e: yrs.delete(0, END))
-yrs.insert(0, "Birth Year")
+values = [[a] for a in range(1950, 2022)]
+
+yrs = ttk.Combobox(age_calc, values=values, width=30)
 yrs.grid(row=2, column=2)
 
-months = Entry(age_calc, font=50, width=25, bg="black", fg="white")
-months.bind("<Button-1>", lambda e: months.delete(0, END))
-months.insert(0, "Birth Month")
+values1 = [[a] for a in range(00, 13)]
+
+months = ttk.Combobox(age_calc, values=values1, width=30)
 months.grid(row=3, column=2)
 
-day = Entry(age_calc, font=50, width=25, bg="black", fg="white")
-day.bind("<Button-1>", lambda e: day.delete(0, END))
-day.insert(0, "Birth Day")
+values2 = [[a] for a in range(00, 32)]
+
+day = ttk.Combobox(age_calc, values=values2, width=30)
 day.grid(row=4, column=2)
 
 btn = Button(age_calc, text="Calculate Age", font=5, bg="black", fg="white", width=25, command=calc_age)
